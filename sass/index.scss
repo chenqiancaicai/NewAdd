@@ -1,0 +1,140 @@
+@import "./normalize.scss";
+@import "./base.scss";
+
+/* 使用 媒体查询来控制 不同屏幕尺寸的 rem, 
+        在 head头部的script内将10等分      
+*/
+
+// 小于767px屏幕生效
+ @media screen and(max-width:767px){    
+    //屏幕宽度 为这种宽度时  px转换rem函数,  
+    @function ptr($p) {
+        @return $p/2/32+rem; //      $p 测量宽度/高度    /2 图片精度2倍    320/10 屏幕尺寸/10等分 
+    } //头部
+    header {
+        position: fixed; // width: 100%; 
+        //width: 5rem;  // 5rem , rem是相对于html根元素的取值, 已经使用js进行 10等分切分,5rem是一半的宽度
+        // width: 10rem;
+        width: 100%;
+        height: ptr(44);
+        line-height: ptr(44);
+        z-index: 99;
+        background: pink;
+        text-align: center;
+        font-size: ptr(22);
+        h4.top_title {
+            // width: 10rem;
+            width: 100%;
+            height: 100%; //高度不能使用10rem, 使用10rem,和html一样的高度
+            //100% 是填满父元素的高度 
+        }
+        .city-select {
+            position: absolute;
+            top: 0;
+            left: ptr(10);
+            .caret {
+                margin-left: ptr(10);
+            }
+        }
+        .user-icon {
+            width: ptr(50);
+            height: ptr(50);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: ptr(15);
+            background: url("../images/icon/my.png") no-repeat center/ptr(50*0.6);
+        }
+    } //轮播图
+    #nav {
+        /*width:10rem;  //rem是 相对于根元素html的fontSize, 程序开始有获取屏幕 window.innerWidth, 进行 10 等分,对html的 fontSize赋值,这里10rem代表占满一行,
+        但是窗口的可视区域,(或者包括滚动条) ,所以,使用width:100% 更灵活*/
+        width: 100%;    
+        padding-top: ptr(44);   
+        .swiper-container {
+            // width: 10rem;
+            width: 100%;
+            .swiper-slide {
+                // width: 10rem;
+                width: 100%;
+                img {
+                    // width: 10rem;   
+                    width:100%;  
+                }
+            }
+        }
+    } //页面主体结构
+    #main {
+        width: 10rem;
+        .travel-cate {
+            >div {
+                float: left;
+                width: 3.3333rem;
+                padding: ptr(6);
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .travel-icon {
+            border-top: 1px solid #ddd;
+            height: 100%;
+            margin-bottom: ptr(10);
+            .list {
+                li {
+                    float: left;
+                    width: 2.5rem;   
+                    img {
+                        width: 100%;
+                        border-right: 1px solid #ddd;
+                        border-bottom: 1px solid #ddd;
+                    }
+                }
+                li:nth-child(4n) img{      
+                    border-right: 1px solid transparent;
+                }
+                // li:nth-child(8) {
+                //     border-right: 0; 
+                // }
+            }
+        }
+        // 亲子游玩
+        .travel-discount {
+            width: 10rem;
+            .lf {
+                float: left;
+                width: 5rem;   
+                img {
+                  width: 100%;  
+                  border-right: 1px solid #ddd; 
+                  border-bottom: 1px solid #ddd;               
+                }
+            }
+            .rt{
+                float: left;
+                width: 5rem;
+                img{
+                    width: 100%;
+                    border-bottom: 1px solid #ddd;
+                }
+            }
+        }
+        //section4
+        .hot-topic{
+            width: 100%;
+             h4{
+                font-size: ptr(20);    
+             }   
+
+
+        }
+        
+    
+
+
+
+    }
+  }
+
+// 大于768px 的屏幕都生效的 css样式 
+@media screen and(min-width:768px) {}

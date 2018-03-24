@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入swiper css文件 -->
+    <link rel="stylesheet" href="./swiper/css/swiper.min.css">
+    <!-- 引入自定义编写的css样式表 -->
+    <link rel="stylesheet" href="./css/index.css">      
+    <script>
+
+       
+
+            var innerW=window.innerWidth;   
+            console.log(innerW);       
+            document.querySelector('html').style.fontSize=innerW/10+'px';   
+
+         //浏览器窗口大小被改变时, 再赋予根元素html 的fontSize
+         window.onresize = function(){      
+            var innerW=window.innerWidth;   
+            console.log(innerW);       
+            document.querySelector('html').style.fontSize=innerW/10+'px';    
+        }
+
+
+        // //获得当前的屏幕尺寸
+        // var screenW=window.screen.width;        
+        // console.log(screenW);
+       
+        
+        
+
+        
+        //将屏幕切分成10等分, 设置html根目录的 字体大小  ( rem:相对尺寸, 根据html设置的字体大小来显示  )
+        // document.querySelector('html').style.fontSize=screenW/10+'px';       
+        // document.querySelector('html').style.fontSize=clientW/10+'px';       
+
+        //1. 方法1:
+        /*
+        if(screenW<768){    
+            document.querySelector('html').style.fontSize=screenW/10+'px';  
+            console.log(document.querySelector('html').style.fontSize);
+           console.log("我是手机屏幕~~");
+           
+        }else{
+            document.querySelector('html').style.fontSize=screenW/40+'px';  
+            console.log(document.querySelector('html').style.fontSize)    
+        }
+        */
+        // 2. 方法2: 一样是做判断 css有媒体查询属性 @media screen and(max-width:767px) , 将对应屏幕的css样式写在里面, 切换到不同的屏幕才生效
+
+        //3. 方法3: 上面两种方法都不灵活, 重在理解了 rem 与 媒体查询的概念最好是使用 bootstrap, 结合 rem来做, 方便快捷
+        
+ </script>
+ 
+</head>
+<body>
+    <header id="header">
+        <div class="city-select">
+              <div>上海<span class="caret">▽</span></div>  
+        </div>
+        <h4 class="top_title">驴妈妈旅游网</h4>  
+        <div class="user-icon">
+
+        </div>  
+    </header>
+    <nav id="nav">
+        <!-- 引入Swiper框架 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/img/banner1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner2.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner3.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner4.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner5.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner6.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/img/banner7.jpg" alt="">
+                </div>
+            </div>
+            <!-- Add Pagination  轮播点-->
+            <div class="swiper-pagination"></div>
+        </div>
+    </nav>
+    <main id="main">
+         <section class="travel-cate clearfix section1"> 
+             <div><img src="./images/icon/nav1.png" alt=""></div>
+             <div><img src="./images/icon/nav2.png" alt=""></div>
+             <div><img src="./images/icon/nav3.png" alt=""></div>
+             <div><img src="./images/icon/nav4.png" alt=""></div>
+             <div><img src="./images/icon/nav5.png" alt=""></div>
+             <div><img src="./images/icon/nav6.png" alt=""></div>   
+         </section>
+         <section class="travel-icon clearfix section2">
+              <ul class="list"> 
+                    <li><img src="./images/icon/j1.png" alt=""></li>
+                    <li><img src="./images/icon/j2.png" alt=""></li>
+                    <li><img src="./images/icon/j3.png" alt=""></li>
+                    <li><img src="./images/icon/j4.png" alt=""></li>
+                    <li><img src="./images/icon/j5.png" alt=""></li>
+                    <li><img src="./images/icon/j6.png" alt=""></li>
+                    <li><img src="./images/icon/j7.png" alt=""></li>
+                    <li><img src="./images/icon/j8.png" alt=""></li>
+              </ul> 
+         </section>
+         <section class="travel-discount section3">
+                <div class="lf">
+                        <img src="./images/img/t1.jpg" alt="">
+                </div>
+                <div class="rt">
+                        <img src="./images/img/t2.jpg" alt="">
+                        <img src="./images/img/t3.jpg" alt="">
+                </div>
+         </section>
+         <section class="hot-topic section4">
+                <h4>热门活动</h4>
+
+         </section>
+
+
+         
+    </main>
+    
+    
+    <script src="./swiper/js/jquery-3.1.1.min.js"></script>
+    <script src="./swiper/js/swiper.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {  
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable :true
+                },
+                loop : true,
+                loopAdditionalSlides : 3,
+
+            });
+        
+    
+    </script>
+</body>
+</html>
